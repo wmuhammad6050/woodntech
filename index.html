@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WoodnTech - Premium Home Store</title>
+<title>WoodnTech - Pro Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -12,7 +12,6 @@ body{
     margin:0;
     font-family:'Inter', sans-serif;
     background:#f6f6f6;
-    color:#222;
 }
 
 /* HEADER */
@@ -25,107 +24,40 @@ header{
     color:white;
     position:sticky;
     top:0;
-    z-index:10;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:700;
     color:#d8b27c;
+    font-weight:700;
 }
 
-nav a{
-    color:white;
-    margin-left:15px;
-    text-decoration:none;
-    font-size:14px;
+.cart-btn{
+    cursor:pointer;
+    background:#d8b27c;
+    padding:8px 12px;
+    border-radius:5px;
+    font-weight:600;
 }
 
 /* HERO */
 .hero{
-    height:85vh;
-    background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
     url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
     background-size:cover;
-    background-position:center;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
     color:white;
-}
-
-.hero h1{
-    font-size:65px;
-    margin:0;
-}
-
-.hero p{
-    font-size:18px;
-    opacity:0.9;
-}
-
-.btn{
-    margin-top:20px;
-    background:#d8b27c;
-    padding:12px 20px;
-    border-radius:6px;
-    text-decoration:none;
-    color:black;
-    font-weight:600;
-}
-
-/* SEARCH */
-.search-bar{
-    text-align:center;
-    padding:15px;
-    background:white;
-}
-
-.search-bar input{
-    width:60%;
-    max-width:400px;
-    padding:10px;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
-
-/* CATEGORIES */
-.categories{
-    padding:60px 8%;
     text-align:center;
 }
 
-.cat-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:15px;
-    margin-top:25px;
-}
-
-.cat{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    font-weight:600;
-    transition:0.3s;
-}
-
-.cat:hover{
-    transform:scale(1.05);
-}
+.hero h1{font-size:60px;margin:0;}
 
 /* PRODUCTS */
 .products{
-    padding:60px 8%;
-}
-
-.section-title{
-    text-align:center;
-    font-size:32px;
-    margin-bottom:30px;
+    padding:50px 8%;
 }
 
 .grid{
@@ -138,12 +70,7 @@ nav a{
     background:white;
     border-radius:10px;
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img{
@@ -156,72 +83,62 @@ nav a{
     padding:15px;
 }
 
-.btn-small{
-    display:inline-block;
-    margin-top:10px;
+.btn{
     background:#d8b27c;
+    border:none;
     padding:8px 12px;
-    border-radius:5px;
-    text-decoration:none;
-    color:black;
-    font-size:13px;
+    cursor:pointer;
     font-weight:600;
+    border-radius:5px;
 }
 
-/* LIFESTYLE */
-.lifestyle{
-    height:350px;
-    background:url('https://images.unsplash.com/photo-1501045661006-fcebe0257c3f');
-    background-size:cover;
-    background-position:center;
-    margin:60px 0;
-    position:relative;
+/* CART */
+.cart{
+    position:fixed;
+    right:0;
+    top:0;
+    width:300px;
+    height:100%;
+    background:white;
+    box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+    padding:20px;
+    display:none;
+    overflow:auto;
 }
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.5);
-    color:white;
+.cart h2{margin-top:0;}
+
+.cart-item{
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+    justify-content:space-between;
+    margin:10px 0;
+}
+
+.remove{
+    color:red;
+    cursor:pointer;
 }
 
 /* CONTACT */
 .contact{
     background:white;
-    padding:60px 8%;
+    padding:50px 8%;
     text-align:center;
 }
 
 .contact input, .contact textarea{
     width:80%;
-    max-width:500px;
+    max-width:400px;
     padding:10px;
-    margin:10px 0;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
-
-.contact button{
-    background:#d8b27c;
-    border:none;
-    padding:12px 20px;
-    font-weight:600;
-    cursor:pointer;
-    border-radius:5px;
+    margin:8px;
 }
 
 /* FOOTER */
 footer{
-    background:#111;
-    color:white;
     text-align:center;
     padding:20px;
-    font-size:13px;
+    background:#111;
+    color:white;
 }
 </style>
 </head>
@@ -230,37 +147,16 @@ footer{
 
 <header>
     <div class="logo">WoodnTech</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#products">Shop</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="cart-btn" onclick="toggleCart()">Cart (<span id="count">0</span>)</div>
 </header>
 
 <section class="hero">
-    <h1>WoodnTech</h1>
-    <p>Premium Smart & Wooden Home Essentials</p>
-    <a href="#products" class="btn">Shop Now</a>
+    <h1>WoodnTech Store</h1>
+    <p>Modern Home Essentials</p>
 </section>
 
-<!-- SEARCH -->
-<div class="search-bar">
-    <input id="search" placeholder="Search products...">
-</div>
-
-<section class="categories">
-    <h2>Shop by Category</h2>
-    <div class="cat-grid">
-        <div class="cat">Kitchen</div>
-        <div class="cat">Bedroom</div>
-        <div class="cat">Lighting</div>
-        <div class="cat">Decor</div>
-        <div class="cat">Furniture</div>
-    </div>
-</section>
-
-<section class="products" id="products">
-    <h2 class="section-title">Featured Products</h2>
+<section class="products">
+    <h2>Products</h2>
 
     <div class="grid">
 
@@ -268,7 +164,7 @@ footer{
             <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
             <div class="card-content">
                 <h3>Wooden Lamp</h3>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
+                <button class="btn" onclick="addToCart('Wooden Lamp')">Add to Cart</button>
             </div>
         </div>
 
@@ -276,47 +172,72 @@ footer{
             <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
             <div class="card-content">
                 <h3>Smart Shelf</h3>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
+                <button class="btn" onclick="addToCart('Smart Shelf')">Add to Cart</button>
             </div>
         </div>
 
     </div>
 </section>
 
-<section class="lifestyle">
-    <div class="overlay">
-        <h2>Designed for Modern Living</h2>
-    </div>
-</section>
+<!-- CART -->
+<div class="cart" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <button class="btn" onclick="checkout()">Checkout</button>
+</div>
 
-<!-- CONTACT FIXED -->
-<section class="contact" id="contact">
+<!-- CONTACT (REAL EMAIL SERVICE) -->
+<section class="contact">
     <h2>Contact Us</h2>
 
-    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-        <input type="text" placeholder="Your Name" required><br>
-        <input type="email" placeholder="Your Email" required><br>
-        <textarea rows="5" placeholder="Your Message" required></textarea><br>
-        <button type="submit">Send Message</button>
+    <!-- Replace EMAIL BELOW -->
+    <form action="https://formspree.io/f/mayplzxy" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <textarea name="message" placeholder="Message" required></textarea><br>
+        <button class="btn" type="submit">Send Email</button>
     </form>
 </section>
 
 <footer>
-    © 2026 WoodnTech | Affiliate Store
+    © 2026 WoodnTech
 </footer>
 
-<!-- SEARCH FUNCTION -->
 <script>
-const search = document.getElementById("search");
-const cards = document.querySelectorAll(".card");
+let cart = [];
 
-search.addEventListener("keyup", function(){
-    let value = this.value.toLowerCase();
+function addToCart(item){
+    cart.push(item);
+    updateCart();
+}
 
-    cards.forEach(card=>{
-        card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
+function updateCart(){
+    document.getElementById("count").innerText = cart.length;
+
+    let html = "";
+    cart.forEach((item,index)=>{
+        html += `<div class="cart-item">
+            ${item}
+            <span class="remove" onclick="removeItem(${index})">X</span>
+        </div>`;
     });
-});
+
+    document.getElementById("cartItems").innerHTML = html;
+}
+
+function removeItem(i){
+    cart.splice(i,1);
+    updateCart();
+}
+
+function toggleCart(){
+    let c = document.getElementById("cart");
+    c.style.display = c.style.display === "block" ? "none" : "block";
+}
+
+function checkout(){
+    alert("Checkout system coming soon (next upgrade: payment integration)");
+}
 </script>
 
 </body>
