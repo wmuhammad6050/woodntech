@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WoodnTech - Modern Home Essentials</title>
+<title>WoodnTech - Premium Home Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -12,7 +11,7 @@
 body{
     margin:0;
     font-family:'Inter', sans-serif;
-    background:#f7f7f7;
+    background:#f6f6f6;
     color:#222;
 }
 
@@ -26,7 +25,6 @@ header{
     color:white;
     position:sticky;
     top:0;
-    z-index:10;
 }
 
 .logo{
@@ -37,14 +35,14 @@ header{
 
 nav a{
     color:white;
-    margin-left:20px;
+    margin-left:15px;
     text-decoration:none;
     font-size:14px;
 }
 
 /* HERO */
 .hero{
-    height:90vh;
+    height:85vh;
     background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
     url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
     background-size:cover;
@@ -58,7 +56,7 @@ nav a{
 }
 
 .hero h1{
-    font-size:70px;
+    font-size:65px;
     margin:0;
 }
 
@@ -71,10 +69,10 @@ nav a{
     margin-top:20px;
     background:#d8b27c;
     padding:12px 20px;
+    border-radius:6px;
+    text-decoration:none;
     color:black;
     font-weight:600;
-    text-decoration:none;
-    border-radius:6px;
 }
 
 /* CATEGORIES */
@@ -85,9 +83,9 @@ nav a{
 
 .cat-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:20px;
-    margin-top:30px;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    margin-top:25px;
 }
 
 .cat{
@@ -100,7 +98,7 @@ nav a{
 }
 
 .cat:hover{
-    transform:translateY(-5px);
+    transform:scale(1.05);
 }
 
 /* PRODUCTS */
@@ -134,7 +132,7 @@ nav a{
 
 .card img{
     width:100%;
-    height:220px;
+    height:200px;
     object-fit:cover;
 }
 
@@ -164,7 +162,7 @@ nav a{
     font-weight:600;
 }
 
-/* LIFESTYLE BANNER */
+/* LIFESTYLE */
 .lifestyle{
     height:350px;
     background:url('https://images.unsplash.com/photo-1501045661006-fcebe0257c3f');
@@ -176,10 +174,7 @@ nav a{
 
 .overlay{
     position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    inset:0;
     background:rgba(0,0,0,0.5);
     color:white;
     display:flex;
@@ -210,7 +205,6 @@ footer{
     color:white;
     text-align:center;
     padding:20px;
-    margin-top:40px;
     font-size:13px;
 }
 </style>
@@ -222,15 +216,15 @@ footer{
     <div class="logo">WoodnTech</div>
     <nav>
         <a href="#">Home</a>
-        <a href="#products">Products</a>
+        <a href="#products">Shop</a>
         <a href="#">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
     <h1>WoodnTech</h1>
-    <p>Modern Smart & Wooden Home Essentials</p>
-    <a href="#products" class="btn">Explore Collection</a>
+    <p>Premium Smart & Wooden Home Essentials</p>
+    <a href="#products" class="btn">Shop Now</a>
 </section>
 
 <section class="categories">
@@ -240,6 +234,8 @@ footer{
         <div class="cat">Bedroom</div>
         <div class="cat">Lighting</div>
         <div class="cat">Decor</div>
+        <div class="cat">Smart Devices</div>
+        <div class="cat">Furniture</div>
     </div>
 </section>
 
@@ -252,8 +248,8 @@ footer{
             <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
             <div class="card-content">
                 <h3>Wooden Lamp</h3>
-                <p>Modern smart lighting for home.</p>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy on Amazon</a>
+                <p>Modern lighting design</p>
+                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
             </div>
         </div>
 
@@ -261,8 +257,8 @@ footer{
             <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
             <div class="card-content">
                 <h3>Smart Shelf</h3>
-                <p>Minimal storage solution.</p>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy on Amazon</a>
+                <p>Minimal storage solution</p>
+                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
             </div>
         </div>
 
@@ -270,8 +266,8 @@ footer{
             <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a">
             <div class="card-content">
                 <h3>Luxury Chair</h3>
-                <p>Comfort + premium design.</p>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy on Amazon</a>
+                <p>Comfort premium design</p>
+                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
             </div>
         </div>
 
@@ -281,7 +277,7 @@ footer{
 <section class="lifestyle">
     <div class="overlay">
         <h2>Designed for Modern Living</h2>
-        <p>Premium home essentials crafted for your lifestyle</p>
+        <p>Premium home essentials for your lifestyle</p>
     </div>
 </section>
 
@@ -294,7 +290,7 @@ footer{
 </section>
 
 <footer>
-    © 2026 WoodnTech | As an Amazon Associate we may earn from qualifying purchases.
+    © 2026 WoodnTech | Affiliate store concept
 </footer>
 
 </body>
