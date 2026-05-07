@@ -25,6 +25,7 @@ header{
     color:white;
     position:sticky;
     top:0;
+    z-index:10;
 }
 
 .logo{
@@ -43,7 +44,7 @@ nav a{
 /* HERO */
 .hero{
     height:85vh;
-    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
     url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
     background-size:cover;
     background-position:center;
@@ -73,6 +74,21 @@ nav a{
     text-decoration:none;
     color:black;
     font-weight:600;
+}
+
+/* SEARCH */
+.search-bar{
+    text-align:center;
+    padding:15px;
+    background:white;
+}
+
+.search-bar input{
+    width:60%;
+    max-width:400px;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:5px;
 }
 
 /* CATEGORIES */
@@ -140,16 +156,6 @@ nav a{
     padding:15px;
 }
 
-.card-content h3{
-    margin:0;
-    font-size:18px;
-}
-
-.card-content p{
-    font-size:13px;
-    opacity:0.7;
-}
-
 .btn-small{
     display:inline-block;
     margin-top:10px;
@@ -184,19 +190,29 @@ nav a{
     text-align:center;
 }
 
-/* TRUST */
-.trust{
-    padding:40px 8%;
-    text-align:center;
+/* CONTACT */
+.contact{
     background:white;
+    padding:60px 8%;
+    text-align:center;
 }
 
-.trust div{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    font-size:14px;
+.contact input, .contact textarea{
+    width:80%;
+    max-width:500px;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
+.contact button{
+    background:#d8b27c;
+    border:none;
+    padding:12px 20px;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:5px;
 }
 
 /* FOOTER */
@@ -217,7 +233,7 @@ footer{
     <nav>
         <a href="#">Home</a>
         <a href="#products">Shop</a>
-        <a href="#">Contact</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
@@ -227,6 +243,11 @@ footer{
     <a href="#products" class="btn">Shop Now</a>
 </section>
 
+<!-- SEARCH -->
+<div class="search-bar">
+    <input id="search" placeholder="Search products...">
+</div>
+
 <section class="categories">
     <h2>Shop by Category</h2>
     <div class="cat-grid">
@@ -234,7 +255,6 @@ footer{
         <div class="cat">Bedroom</div>
         <div class="cat">Lighting</div>
         <div class="cat">Decor</div>
-        <div class="cat">Smart Devices</div>
         <div class="cat">Furniture</div>
     </div>
 </section>
@@ -248,7 +268,6 @@ footer{
             <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
             <div class="card-content">
                 <h3>Wooden Lamp</h3>
-                <p>Modern lighting design</p>
                 <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
             </div>
         </div>
@@ -257,16 +276,6 @@ footer{
             <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
             <div class="card-content">
                 <h3>Smart Shelf</h3>
-                <p>Minimal storage solution</p>
-                <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a">
-            <div class="card-content">
-                <h3>Luxury Chair</h3>
-                <p>Comfort premium design</p>
                 <a class="btn-small" href="https://amazon.com" target="_blank">Buy</a>
             </div>
         </div>
@@ -277,21 +286,38 @@ footer{
 <section class="lifestyle">
     <div class="overlay">
         <h2>Designed for Modern Living</h2>
-        <p>Premium home essentials for your lifestyle</p>
     </div>
 </section>
 
-<section class="trust">
-    <div>
-        <div>✔ Premium Quality</div>
-        <div>✔ Trusted Products</div>
-        <div>✔ Fast Delivery</div>
-    </div>
+<!-- CONTACT FIXED -->
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <input type="text" placeholder="Your Name" required><br>
+        <input type="email" placeholder="Your Email" required><br>
+        <textarea rows="5" placeholder="Your Message" required></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
 </section>
 
 <footer>
-    © 2026 WoodnTech | Affiliate store concept
+    © 2026 WoodnTech | Affiliate Store
 </footer>
+
+<!-- SEARCH FUNCTION -->
+<script>
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("keyup", function(){
+    let value = this.value.toLowerCase();
+
+    cards.forEach(card=>{
+        card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
+    });
+});
+</script>
 
 </body>
 </html>
