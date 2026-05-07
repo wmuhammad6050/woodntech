@@ -3,30 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WoodnTech - Pro Store</title>
+<title>WoodnTech - Professional Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Inter', sans-serif;background:#f6f6f6;}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 8%;background:#111;color:white;position:sticky;top:0;}
-.logo{color:#d8b27c;font-weight:700;}
+/* GENERAL STYLES */
+body{margin:0;font-family:'Inter',sans-serif;background:#f6f6f6;}
+a{text-decoration:none;color:inherit;}
+h2{margin-bottom:20px;}
+.btn{background:#d8b27c;border:none;padding:8px 12px;border-radius:5px;font-weight:600;cursor:pointer;}
+/* HEADER */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 8%;background:#111;color:white;position:sticky;top:0;z-index:100;}
+.logo{color:#d8b27c;font-weight:700;font-size:24px;}
 .cart-btn{cursor:pointer;background:#d8b27c;padding:8px 12px;border-radius:5px;font-weight:600;}
-.hero{height:80vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'); background-size:cover; display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;}
-.hero h1{font-size:60px;margin:0;}
+/* HERO */
+.hero{height:60vh;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'); background-size:cover;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;}
+.hero h1{font-size:50px;margin:0;}
+.hero p{font-size:20px;}
+/* SEARCH */
 .search-bar{text-align:center;padding:15px;background:white;}
 .search-bar input{width:60%;max-width:400px;padding:10px;border:1px solid #ddd;border-radius:5px;}
-.products{padding:50px 8%;}
+/* CATEGORIES */
+.categories{text-align:center;margin:30px 0;}
+.categories button{margin:0 5px;padding:10px 15px;border:none;border-radius:5px;cursor:pointer;background:#111;color:white;font-weight:600;}
+.categories button.active{background:#d8b27c;color:#111;}
+/* PRODUCTS GRID */
+.products{padding:0 8% 50px 8%;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-.card img{width:100%;height:200px;object-fit:cover;}
+.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.2s;}
+.card:hover{transform:translateY(-5px);}
+.card img{width:100%;height:180px;object-fit:cover;}
 .card-content{padding:15px;}
-.btn{background:#d8b27c;border:none;padding:8px 12px;cursor:pointer;font-weight:600;border-radius:5px;}
-.cart{position:fixed;right:0;top:0;width:300px;height:100%;background:white;box-shadow:-5px 0 15px rgba(0,0,0,0.2);padding:20px;display:none;overflow:auto;}
+.card-content h3{margin:0 0 10px 0;}
+.price{font-weight:700;color:#111;margin-bottom:10px;display:block;}
+/* CART */
+.cart{position:fixed;right:0;top:0;width:320px;height:100%;background:white;box-shadow:-5px 0 15px rgba(0,0,0,0.2);padding:20px;display:none;overflow:auto;z-index:200;}
 .cart h2{margin-top:0;}
 .cart-item{display:flex;justify-content:space-between;margin:10px 0;}
 .remove{color:red;cursor:pointer;}
+/* CONTACT */
 .contact{background:white;padding:50px 8%;text-align:center;}
-.contact input, .contact textarea{width:80%;max-width:400px;padding:10px;margin:8px;}
-footer{text-align:center;padding:20px;background:#111;color:white;}
+.contact input,.contact textarea{width:80%;max-width:400px;padding:10px;margin:8px;}
+/* FOOTER */
+footer{text-align:center;padding:20px;background:#111;color:white;margin-top:30px;}
 </style>
 </head>
 <body>
@@ -38,49 +56,24 @@ footer{text-align:center;padding:20px;background:#111;color:white;}
 
 <section class="hero">
 <h1>WoodnTech Store</h1>
-<p>Modern Home Essentials</p>
+<p>Modern Home & Pet Essentials</p>
 </section>
 
 <div class="search-bar">
 <input id="search" placeholder="Search products...">
 </div>
 
+<div class="categories">
+<button class="active" onclick="showCategory('toaster')">Toasters</button>
+<button onclick="showCategory('mobile')">Mobile Covers</button>
+<button onclick="showCategory('catfood')">Cat Food</button>
+<button onclick="showCategory('dogfood')">Dog Food</button>
+</div>
+
 <section class="products">
-<h2>Products</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1606813903309-8b2b3d4c3f92" alt="Toaster">
-<div class="card-content">
-<h3>Toaster</h3>
-<button class="btn" onclick="addToCart('Toaster')">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1590502593745-657b9c7db055" alt="Mobile Cover">
-<div class="card-content">
-<h3>Mobile Cover</h3>
-<button class="btn" onclick="addToCart('Mobile Cover')">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1595433562696-7f5e4f6f0d2e" alt="Cat Food">
-<div class="card-content">
-<h3>Cat Food</h3>
-<button class="btn" onclick="addToCart('Cat Food')">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1595433562696-7f5e4f6f0d2e" alt="Dog Food">
-<div class="card-content">
-<h3>Dog Food</h3>
-<button class="btn" onclick="addToCart('Dog Food')">Add to Cart</button>
-</div>
-</div>
-
+<h2 id="category-title">Toasters</h2>
+<div class="grid" id="product-grid">
+<!-- Products will be dynamically inserted -->
 </div>
 </section>
 
@@ -105,24 +98,83 @@ footer{text-align:center;padding:20px;background:#111;color:white;}
 </footer>
 
 <script>
+// PRODUCTS DATA
+const productsData = {
+  toaster: [
+    {name:"Classic Toaster",price:"$29.99",img:"https://images.unsplash.com/photo-1606813903309-8b2b3d4c3f92"},
+    {name:"Smart Toaster",price:"$39.99",img:"https://images.unsplash.com/photo-1616627989870-b121a43c7d4b"},
+    {name:"Retro Toaster",price:"$34.99",img:"https://images.unsplash.com/photo-1574226516831-e1dff420e43e"},
+    {name:"4-Slice Toaster",price:"$49.99",img:"https://images.unsplash.com/photo-1628160941505-77f7c33a41f3"},
+    {name:"Mini Toaster",price:"$24.99",img:"https://images.unsplash.com/photo-1601597116351-b7c1c2ffec03"}
+  ],
+  mobile: [
+    {name:"Red Mobile Cover",price:"$12.99",img:"https://images.unsplash.com/photo-1590502593745-657b9c7db055"},
+    {name:"Blue Mobile Cover",price:"$11.99",img:"https://images.unsplash.com/photo-1601893561384-62d9e8d9f70f"},
+    {name:"Pattern Cover",price:"$14.99",img:"https://images.unsplash.com/photo-1612831455549-d6f3d4fcf9d4"},
+    {name:"Leather Cover",price:"$19.99",img:"https://images.unsplash.com/photo-1613553477496-9929b473f0c6"},
+    {name:"Transparent Cover",price:"$9.99",img:"https://images.unsplash.com/photo-1595433562704-769b1b37d3c3"}
+  ],
+  catfood: [
+    {name:"Premium Cat Food",price:"$15.99",img:"https://images.unsplash.com/photo-1595433562696-7f5e4f6f0d2e"},
+    {name:"Kitty Delight",price:"$12.99",img:"https://images.unsplash.com/photo-1606755962770-80fc8b2aa3f6"},
+    {name:"Organic Cat Food",price:"$18.99",img:"https://images.unsplash.com/photo-1612356339654-9ec9a53708e3"},
+    {name:"Cat Treats Pack",price:"$9.99",img:"https://images.unsplash.com/photo-1613214828653-4b6480b4dbdb"},
+    {name:"Fish Flavor Cat Food",price:"$14.99",img:"https://images.unsplash.com/photo-1612449372295-b4a936c4a6b0"}
+  ],
+  dogfood: [
+    {name:"Premium Dog Food",price:"$19.99",img:"https://images.unsplash.com/photo-1612449372295-b4a936c4a6b0"},
+    {name:"Chicken Dog Food",price:"$16.99",img:"https://images.unsplash.com/photo-1612834535601-cc6b1f66e72c"},
+    {name:"Organic Dog Food",price:"$22.99",img:"https://images.unsplash.com/photo-1612356348987-2c7d4f3fa4d8"},
+    {name:"Puppy Treats Pack",price:"$11.99",img:"https://images.unsplash.com/photo-1612356350002-1b63d9a9f3d2"},
+    {name:"Beef Flavor Dog Food",price:"$17.99",img:"https://images.unsplash.com/photo-1612356356002-2c8d1f9f1d3f"}
+  ]
+};
+
+// CART
 let cart = [];
-function addToCart(item){cart.push(item);updateCart();}
+function addToCart(item){
+  cart.push(item);
+  updateCart();
+}
 function updateCart(){
-document.getElementById("count").innerText = cart.length;
-let html="";
-cart.forEach((item,index)=>{html += `<div class="cart-item">${item}<span class="remove" onclick="removeItem(${index})">X</span></div>`;});
-document.getElementById("cartItems").innerHTML = html;
+  document.getElementById("count").innerText = cart.length;
+  let html="";
+  cart.forEach((item,index)=>{html += `<div class="cart-item">${item.name} - ${item.price} <span class="remove" onclick="removeItem(${index})">X</span></div>`;});
+  document.getElementById("cartItems").innerHTML = html;
 }
 function removeItem(i){cart.splice(i,1);updateCart();}
 function toggleCart(){let c=document.getElementById("cart");c.style.display=c.style.display==="block"?"none":"block";}
-function checkout(){alert("Checkout system coming soon! Next upgrade: payment integration.");}
+function checkout(){alert("Checkout system coming soon!");}
+
+// RENDER PRODUCTS
+const grid=document.getElementById("product-grid");
+const categoryTitle=document.getElementById("category-title");
+function showCategory(cat){
+  // update active button
+  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+  document.querySelector(`.categories button[onclick="showCategory('${cat}')"]`).classList.add("active");
+  // update title
+  categoryTitle.innerText = cat.charAt(0).toUpperCase()+cat.slice(1).replace(/([A-Z])/g," $1");
+  // render products
+  grid.innerHTML="";
+  productsData[cat].forEach(p=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<img src="${p.img}" alt="${p.name}"><div class="card-content"><h3>${p.name}</h3><span class="price">${p.price}</span><button class="btn" onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button></div>`;
+    grid.appendChild(card);
+  });
+}
+// INIT
+showCategory('toaster');
 
 // SEARCH BAR
 const search=document.getElementById("search");
-const cards=document.querySelectorAll(".card");
 search.addEventListener("keyup",function(){
-let value=this.value.toLowerCase();
-cards.forEach(card=>{card.style.display=card.innerText.toLowerCase().includes(value)?"block":"none";});
+  const value=this.value.toLowerCase();
+  const cards=document.querySelectorAll(".card");
+  cards.forEach(c=>{
+    c.style.display=c.innerText.toLowerCase().includes(value)?"block":"none";
+  });
 });
 </script>
 
