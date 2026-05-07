@@ -55,6 +55,21 @@ header{
 
 .hero h1{font-size:60px;margin:0;}
 
+/* SEARCH */
+.search-bar{
+    text-align:center;
+    padding:15px;
+    background:white;
+}
+
+.search-bar input{
+    width:60%;
+    max-width:400px;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
 /* PRODUCTS */
 .products{
     padding:50px 8%;
@@ -155,6 +170,11 @@ footer{
     <p>Modern Home Essentials</p>
 </section>
 
+<!-- SEARCH -->
+<div class="search-bar">
+    <input id="search" placeholder="Search products...">
+</div>
+
 <section class="products">
     <h2>Products</h2>
 
@@ -186,12 +206,11 @@ footer{
     <button class="btn" onclick="checkout()">Checkout</button>
 </div>
 
-<!-- CONTACT (REAL EMAIL SERVICE) -->
+<!-- CONTACT (REAL EMAIL) -->
 <section class="contact">
     <h2>Contact Us</h2>
 
-    <!-- Replace EMAIL BELOW -->
-    <form action="https://formspree.io/f/mayplzxy" method="POST">
+    <form action="https://formspree.io/f/mgodzdaj" method="POST">
         <input type="text" name="name" placeholder="Your Name" required><br>
         <input type="email" name="email" placeholder="Your Email" required><br>
         <textarea name="message" placeholder="Message" required></textarea><br>
@@ -236,8 +255,20 @@ function toggleCart(){
 }
 
 function checkout(){
-    alert("Checkout system coming soon (next upgrade: payment integration)");
+    alert("Checkout system coming soon. Next upgrade: payment integration!");
 }
+
+// SEARCH BAR
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("keyup", function(){
+    let value = this.value.toLowerCase();
+
+    cards.forEach(card=>{
+        card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
+    });
+});
 </script>
 
 </body>
