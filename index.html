@@ -4,270 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WoodnTech - Pro Store</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-body{
-    margin:0;
-    font-family:'Inter', sans-serif;
-    background:#f6f6f6;
-}
-
-/* HEADER */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 8%;
-    background:#111;
-    color:white;
-    position:sticky;
-    top:0;
-}
-
-.logo{
-    color:#d8b27c;
-    font-weight:700;
-}
-
-.cart-btn{
-    cursor:pointer;
-    background:#d8b27c;
-    padding:8px 12px;
-    border-radius:5px;
-    font-weight:600;
-}
-
-/* HERO */
-.hero{
-    height:80vh;
-    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-    url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
-    background-size:cover;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    text-align:center;
-}
-
+body{margin:0;font-family:'Inter', sans-serif;background:#f6f6f6;}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 8%;background:#111;color:white;position:sticky;top:0;}
+.logo{color:#d8b27c;font-weight:700;}
+.cart-btn{cursor:pointer;background:#d8b27c;padding:8px 12px;border-radius:5px;font-weight:600;}
+.hero{height:80vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'); background-size:cover; display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;}
 .hero h1{font-size:60px;margin:0;}
-
-/* SEARCH */
-.search-bar{
-    text-align:center;
-    padding:15px;
-    background:white;
-}
-
-.search-bar input{
-    width:60%;
-    max-width:400px;
-    padding:10px;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
-
-/* PRODUCTS */
-.products{
-    padding:50px 8%;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:15px;
-}
-
-.btn{
-    background:#d8b27c;
-    border:none;
-    padding:8px 12px;
-    cursor:pointer;
-    font-weight:600;
-    border-radius:5px;
-}
-
-/* CART */
-.cart{
-    position:fixed;
-    right:0;
-    top:0;
-    width:300px;
-    height:100%;
-    background:white;
-    box-shadow:-5px 0 15px rgba(0,0,0,0.2);
-    padding:20px;
-    display:none;
-    overflow:auto;
-}
-
+.search-bar{text-align:center;padding:15px;background:white;}
+.search-bar input{width:60%;max-width:400px;padding:10px;border:1px solid #ddd;border-radius:5px;}
+.products{padding:50px 8%;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.card img{width:100%;height:200px;object-fit:cover;}
+.card-content{padding:15px;}
+.btn{background:#d8b27c;border:none;padding:8px 12px;cursor:pointer;font-weight:600;border-radius:5px;}
+.cart{position:fixed;right:0;top:0;width:300px;height:100%;background:white;box-shadow:-5px 0 15px rgba(0,0,0,0.2);padding:20px;display:none;overflow:auto;}
 .cart h2{margin-top:0;}
-
-.cart-item{
-    display:flex;
-    justify-content:space-between;
-    margin:10px 0;
-}
-
-.remove{
-    color:red;
-    cursor:pointer;
-}
-
-/* CONTACT */
-.contact{
-    background:white;
-    padding:50px 8%;
-    text-align:center;
-}
-
-.contact input, .contact textarea{
-    width:80%;
-    max-width:400px;
-    padding:10px;
-    margin:8px;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#111;
-    color:white;
-}
+.cart-item{display:flex;justify-content:space-between;margin:10px 0;}
+.remove{color:red;cursor:pointer;}
+.contact{background:white;padding:50px 8%;text-align:center;}
+.contact input, .contact textarea{width:80%;max-width:400px;padding:10px;margin:8px;}
+footer{text-align:center;padding:20px;background:#111;color:white;}
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">WoodnTech</div>
-    <div class="cart-btn" onclick="toggleCart()">Cart (<span id="count">0</span>)</div>
+<div class="logo">WoodnTech</div>
+<div class="cart-btn" onclick="toggleCart()">Cart (<span id="count">0</span>)</div>
 </header>
 
 <section class="hero">
-    <h1>WoodnTech Store</h1>
-    <p>Modern Home Essentials</p>
+<h1>WoodnTech Store</h1>
+<p>Modern Home Essentials</p>
 </section>
 
-<!-- SEARCH -->
 <div class="search-bar">
-    <input id="search" placeholder="Search products...">
+<input id="search" placeholder="Search products...">
 </div>
 
 <section class="products">
-    <h2>Products</h2>
+<h2>Products</h2>
+<div class="grid">
 
-    <div class="grid">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
-            <div class="card-content">
-                <h3>Wooden Lamp</h3>
-                <button class="btn" onclick="addToCart('Wooden Lamp')">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-            <div class="card-content">
-                <h3>Smart Shelf</h3>
-                <button class="btn" onclick="addToCart('Smart Shelf')">Add to Cart</button>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- CART -->
-<div class="cart" id="cart">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <button class="btn" onclick="checkout()">Checkout</button>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1606813903309-8b2b3d4c3f92" alt="Toaster">
+<div class="card-content">
+<h3>Toaster</h3>
+<button class="btn" onclick="addToCart('Toaster')">Add to Cart</button>
+</div>
 </div>
 
-<!-- CONTACT (REAL EMAIL) -->
-<section class="contact">
-    <h2>Contact Us</h2>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1590502593745-657b9c7db055" alt="Mobile Cover">
+<div class="card-content">
+<h3>Mobile Cover</h3>
+<button class="btn" onclick="addToCart('Mobile Cover')">Add to Cart</button>
+</div>
+</div>
 
-    <form action="https://formspree.io/f/mgodzdaj" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required><br>
-        <input type="email" name="email" placeholder="Your Email" required><br>
-        <textarea name="message" placeholder="Message" required></textarea><br>
-        <button class="btn" type="submit">Send Email</button>
-    </form>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1595433562696-7f5e4f6f0d2e" alt="Cat Food">
+<div class="card-content">
+<h3>Cat Food</h3>
+<button class="btn" onclick="addToCart('Cat Food')">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1595433562696-7f5e4f6f0d2e" alt="Dog Food">
+<div class="card-content">
+<h3>Dog Food</h3>
+<button class="btn" onclick="addToCart('Dog Food')">Add to Cart</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="cart" id="cart">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<button class="btn" onclick="checkout()">Checkout</button>
+</div>
+
+<section class="contact">
+<h2>Contact Us</h2>
+<form action="https://formspree.io/f/mgodzdaj" method="POST">
+<input type="text" name="name" placeholder="Your Name" required><br>
+<input type="email" name="email" placeholder="Your Email" required><br>
+<textarea name="message" placeholder="Message" required></textarea><br>
+<button class="btn" type="submit">Send Email</button>
+</form>
 </section>
 
 <footer>
-    © 2026 WoodnTech
+© 2026 WoodnTech
 </footer>
 
 <script>
 let cart = [];
-
-function addToCart(item){
-    cart.push(item);
-    updateCart();
-}
-
+function addToCart(item){cart.push(item);updateCart();}
 function updateCart(){
-    document.getElementById("count").innerText = cart.length;
-
-    let html = "";
-    cart.forEach((item,index)=>{
-        html += `<div class="cart-item">
-            ${item}
-            <span class="remove" onclick="removeItem(${index})">X</span>
-        </div>`;
-    });
-
-    document.getElementById("cartItems").innerHTML = html;
+document.getElementById("count").innerText = cart.length;
+let html="";
+cart.forEach((item,index)=>{html += `<div class="cart-item">${item}<span class="remove" onclick="removeItem(${index})">X</span></div>`;});
+document.getElementById("cartItems").innerHTML = html;
 }
-
-function removeItem(i){
-    cart.splice(i,1);
-    updateCart();
-}
-
-function toggleCart(){
-    let c = document.getElementById("cart");
-    c.style.display = c.style.display === "block" ? "none" : "block";
-}
-
-function checkout(){
-    alert("Checkout system coming soon. Next upgrade: payment integration!");
-}
+function removeItem(i){cart.splice(i,1);updateCart();}
+function toggleCart(){let c=document.getElementById("cart");c.style.display=c.style.display==="block"?"none":"block";}
+function checkout(){alert("Checkout system coming soon! Next upgrade: payment integration.");}
 
 // SEARCH BAR
-const search = document.getElementById("search");
-const cards = document.querySelectorAll(".card");
-
-search.addEventListener("keyup", function(){
-    let value = this.value.toLowerCase();
-
-    cards.forEach(card=>{
-        card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
-    });
+const search=document.getElementById("search");
+const cards=document.querySelectorAll(".card");
+search.addEventListener("keyup",function(){
+let value=this.value.toLowerCase();
+cards.forEach(card=>{card.style.display=card.innerText.toLowerCase().includes(value)?"block":"none";});
 });
 </script>
 
